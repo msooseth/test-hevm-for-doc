@@ -8,8 +8,6 @@
     # tools
     hevm.url = "github:ethereum/hevm";
     foundry.url = "github:shazow/foundry.nix/monthly";
-    /*halmos-src = { url = "github:a16z/halmos"; flake = false; };
-    runlim-src = { url = "github:msooseth/runlim"; flake = false; };*/
   };
 
   outputs = { self, nixpkgs, flake-utils, hevm, foundry, }:
@@ -20,7 +18,6 @@
         devShell = pkgs.mkShell {
           packages = [
             # tools
-            halmos
             hevm.packages.${system}.default
             foundry.defaultPackage.${system}
             pkgs.solc
